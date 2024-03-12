@@ -22,4 +22,8 @@ public class PanelRoundAudio extends JPanel {
         g2.fillRoundRect(0, 0, getWidth(), getHeight(), 20, 20);
         super.paintComponent(grphcs);
     }
+
+    public void setPanelBackgroundColor(Color color) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

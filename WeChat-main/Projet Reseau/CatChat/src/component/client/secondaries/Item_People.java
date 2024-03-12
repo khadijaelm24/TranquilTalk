@@ -13,7 +13,8 @@ public class Item_People extends javax.swing.JPanel {
         email=receiver;
         username.setText(receiver);
         //
-        this.setBackground(new java.awt.Color(46, 182, 44));
+        // this.setBackground(new java.awt.Color(46, 182, 44));
+        this.setBackground(new java.awt.Color(220,220,220));
         init();
     }
     
@@ -44,12 +45,12 @@ public class Item_People extends javax.swing.JPanel {
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                setBackground(new Color(46, 182, 44));
+                setBackground(new Color(220,220,220));
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
-                setBackground(new Color(46, 182, 44));
+                setBackground(new Color(220,220,220));
             }
 
             @Override

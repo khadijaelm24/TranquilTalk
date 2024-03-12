@@ -22,7 +22,7 @@ public class Chat_Title extends javax.swing.JPanel {
     
     public void statusOffline(){
         lbStatus.setText("Hors ligne");
-        lbStatus.setForeground(new Color(255,0,0));
+        lbStatus.setForeground(new Color(0,0,255));
     }
     
     @SuppressWarnings("unchecked")

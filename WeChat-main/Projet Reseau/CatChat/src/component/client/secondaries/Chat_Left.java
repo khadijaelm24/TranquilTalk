@@ -9,12 +9,13 @@ public class Chat_Left extends javax.swing.JLayeredPane {
         initComponents();
         txt.setBackground(new Color(230,230,230));
         // txt.setForeground(new Color(145,240,134));
+        // txt.setForeground(new Color(51,122,44));
     }
     
     public void setUserprofile(String user){
         txt.setUserprofile(user);
         // txt.setColor();
-        // this.setForeground(new Color(51,122,44));
+        txt.setForeground(new Color(51,122,44));
     }
     
     public void setText(String text){

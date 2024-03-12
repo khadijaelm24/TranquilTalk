@@ -11,18 +11,18 @@ public class Item_Add extends javax.swing.JPanel {
         initComponents();
         lbAdd.setText(name);
         //
-        this.setBackground(new java.awt.Color(46, 182, 44));
+        this.setBackground(new java.awt.Color(255, 255, 255));
         init();
     }
     private void init(){
         addMouseListener(new MouseAdapter() {
             @Override
             public void mouseEntered(MouseEvent e) {
-                setBackground(new Color(46, 182, 44));
+                setBackground(new Color(255, 255, 255));
             }
             @Override
             public void mouseExited(MouseEvent e) {
-                setBackground(new Color(46, 182, 44));
+                setBackground(new Color(255, 255, 255));
             }      
         });
     }

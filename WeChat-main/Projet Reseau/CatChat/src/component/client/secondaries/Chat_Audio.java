@@ -14,15 +14,32 @@ public class Chat_Audio extends javax.swing.JPanel {
     private int t;
     private boolean b;
     private Clip clip;
+//    public Chat_Audio(String fileName) {
+//        initComponents();
+//        addAudioFile(fileName);
+//        
+//        // panelRoundAudio1.setPanelBackgroundColor(new Color(255, 255, 255));
+//        
+//        setOpaque(false);
+//        init();
+//    }
+    
     public Chat_Audio(String fileName) {
         initComponents();
-        this.setBackground(new Color(128, 128, 128));
         addAudioFile(fileName);
         setOpaque(false);
         init();
-        
-        
     }
+
+    // Nouveau constructeur prenant la couleur en paramètre
+    public Chat_Audio(String fileName, Color backgroundColor) {
+        initComponents();
+        addAudioFile(fileName);
+        setOpaque(false);
+        init();
+        panelRoundAudio1.setBackground(new Color(255, 255, 255)); // Mettez à jour la couleur du fond
+    }
+    
     private void addAudioFile(String fileName){
         File file=new File(fileName);
         AudioInputStream audioStream = null;
@@ -65,7 +82,7 @@ public class Chat_Audio extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(408, 72));
 
         slider.setBackground(new java.awt.Color(255, 255, 255));
-        slider.setForeground(new java.awt.Color(51,122,44));
+        slider.setForeground(new java.awt.Color(0, 0, 0));
         slider.setValue(0);
 
         play.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/play.png"))); // NOI18N

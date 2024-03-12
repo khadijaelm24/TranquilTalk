@@ -183,7 +183,7 @@ public class List extends javax.swing.JPanel {
 
         sp.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        menuList.setBackground(new java.awt.Color(46, 182, 44));
+        menuList.setBackground(new java.awt.Color(255, 255, 255));
 
         javax.swing.GroupLayout menuListLayout = new javax.swing.GroupLayout(menuList);
         menuList.setLayout(menuListLayout);
