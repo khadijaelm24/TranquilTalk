@@ -1,8 +1,11 @@
 package component.client;
 
+import java.awt.Color;
+
 public class Accueil extends javax.swing.JPanel {
     public Accueil() {
         initComponents();
+        this.setBackground(new Color(255,255,255));
     }
 
     /**

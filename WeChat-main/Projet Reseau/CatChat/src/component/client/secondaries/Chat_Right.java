@@ -9,7 +9,7 @@ public class Chat_Right extends javax.swing.JLayeredPane {
 
     public Chat_Right() {
         initComponents();
-        txt.setBackground(new Color(190,210,255));
+        txt.setBackground(new Color(145,240,134));
     }
     
     public void setText(String text){

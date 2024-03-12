@@ -6,6 +6,7 @@ import net.miginfocom.swing.MigLayout;
 import component.client.secondaries.Item_People;
 import swing.ScrollBar;
 import event.Globals;
+import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.io.File;
@@ -32,6 +33,7 @@ public class List extends javax.swing.JPanel {
     }
     
     private void init(){
+        this.setBackground(new Color(255,255,255));
         sp.setVerticalScrollBar(new ScrollBar());
         menu.setLayout(new MigLayout("fillx","2%[fill,96%]2%","5[]5"));
         menuList.setLayout(new MigLayout("fillx","3%[fill,92%]3%","5[]5"));
@@ -181,7 +183,7 @@ public class List extends javax.swing.JPanel {
 
         sp.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        menuList.setBackground(new java.awt.Color(247, 247, 247));
+        menuList.setBackground(new java.awt.Color(46, 182, 44));
 
         javax.swing.GroupLayout menuListLayout = new javax.swing.GroupLayout(menuList);
         menuList.setLayout(menuListLayout);

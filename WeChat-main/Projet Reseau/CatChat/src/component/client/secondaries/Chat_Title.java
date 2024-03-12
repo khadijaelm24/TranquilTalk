@@ -6,6 +6,7 @@ public class Chat_Title extends javax.swing.JPanel {
 
     public Chat_Title() {
         initComponents();
+        this.setBackground(new Color(220,220,220));
     }
     public void setUserName(String userName){
         lbName.setText(userName);
@@ -15,13 +16,13 @@ public class Chat_Title extends javax.swing.JPanel {
     }
     
     public void statusActive(){
-        lbStatus.setText("Active now");
-        lbStatus.setForeground(new Color(0,138,96));
+        lbStatus.setText("En ligne");
+        lbStatus.setForeground(new Color(51,122,44));
     }
     
     public void statusOffline(){
-        lbStatus.setText("Offline");
-        lbStatus.setForeground(new Color(160,160,160));
+        lbStatus.setText("Hors ligne");
+        lbStatus.setForeground(new Color(255,0,0));
     }
     
     @SuppressWarnings("unchecked")

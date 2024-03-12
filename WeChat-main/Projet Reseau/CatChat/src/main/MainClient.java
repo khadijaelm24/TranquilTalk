@@ -11,6 +11,7 @@ import java.io.File;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import event.Globals;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.io.BufferedWriter;
 import java.io.ByteArrayInputStream;
@@ -18,6 +19,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 
 public class MainClient extends javax.swing.JFrame {
@@ -26,6 +28,8 @@ public class MainClient extends javax.swing.JFrame {
     public MainClient(/*int num1*/) {
         //this.num=num1;
         initComponents();
+        Backround.setBackground(new java.awt.Color(51, 122, 44));
+        
         init();
         Thread ths = new Thread(() -> {
             boolean itIsFine=true;
@@ -226,7 +230,7 @@ public class MainClient extends javax.swing.JFrame {
         setIconImage(new ImageIcon(getClass().getResource("/icon/Logo.png")).getImage());
         view_Image.setVisible(false);
         home.setVisible(true);
-        setTitle("CatChat - "+Globals.getMyEmail());
+        setTitle("TranquilTalk - "+Globals.getMyEmail());
         initEvent();
     }
     private void initEvent(){
@@ -318,7 +322,7 @@ public class MainClient extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainClient.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

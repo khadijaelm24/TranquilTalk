@@ -1,5 +1,6 @@
     package component.client.secondaries;
 
+import java.awt.Color;
 import java.awt.Cursor;
 import java.io.File;
 import javax.sound.sampled.AudioInputStream;
@@ -15,9 +16,12 @@ public class Chat_Audio extends javax.swing.JPanel {
     private Clip clip;
     public Chat_Audio(String fileName) {
         initComponents();
+        this.setBackground(new Color(128, 128, 128));
         addAudioFile(fileName);
         setOpaque(false);
         init();
+        
+        
     }
     private void addAudioFile(String fileName){
         File file=new File(fileName);
@@ -61,7 +65,7 @@ public class Chat_Audio extends javax.swing.JPanel {
         setPreferredSize(new java.awt.Dimension(408, 72));
 
         slider.setBackground(new java.awt.Color(255, 255, 255));
-        slider.setForeground(new java.awt.Color(50, 96, 215));
+        slider.setForeground(new java.awt.Color(51,122,44));
         slider.setValue(0);
 
         play.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icon/play.png"))); // NOI18N

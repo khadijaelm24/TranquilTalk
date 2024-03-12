@@ -50,6 +50,7 @@ public class Chat_Bottom extends javax.swing.JPanel {
     //public Call_Main cm;
     public Chat_Bottom() {
         initComponents();
+        // this.setBackground(Color.GREEN);
         init();
     }
     public void setReceiver(String receiver){
@@ -98,7 +99,7 @@ public class Chat_Bottom extends javax.swing.JPanel {
             this.setBackground(new Color(220,220,220));
             JScrollPane scroll=new JScrollPane();
             JIMSendTextPane txt = new JIMSendTextPane();
-            txt.setHintText("Write your Message Here ...");
+            txt.setHintText("Tapez votre message ici ...");
             scroll.setBorder(null);
             txt.addKeyListener(new KeyAdapter() {
             @Override
@@ -121,7 +122,7 @@ public class Chat_Bottom extends javax.swing.JPanel {
             
             JButton Bsend = new JButton();
             Bsend.setBorder(null);
-            Bsend.setToolTipText("Send Message");
+            Bsend.setToolTipText("Envoyer Message");
             Bsend.setContentAreaFilled(false);
             Bsend.setCursor(new Cursor(Cursor.HAND_CURSOR));
             Bsend.setIcon(new ImageIcon(getClass().getResource("/icon/send.png")));
@@ -166,7 +167,7 @@ public class Chat_Bottom extends javax.swing.JPanel {
             
             JButton Brec = new JButton();
             Brec.setBorder(null);
-            Brec.setToolTipText("Record Audio");
+            Brec.setToolTipText("Enregistrer Audio");
             Brec.setContentAreaFilled(false);
             Brec.setCursor(new Cursor(Cursor.HAND_CURSOR));
             Brec.setIcon(new ImageIcon(getClass().getResource("/icon/record.png")));
@@ -253,7 +254,7 @@ public class Chat_Bottom extends javax.swing.JPanel {
             
             JButton Bfile = new JButton();
             Bfile.setBorder(null);
-            Bfile.setToolTipText("Send a File");
+            Bfile.setToolTipText("Envoyer Fichier");
             Bfile.setContentAreaFilled(false);
             Bfile.setCursor(new Cursor(Cursor.HAND_CURSOR));
             Bfile.setIcon(new ImageIcon(getClass().getResource("/icon/addFile.png")));
@@ -306,7 +307,7 @@ public class Chat_Bottom extends javax.swing.JPanel {
             
             JButton Bimage = new JButton();
             Bimage.setBorder(null);
-            Bimage.setToolTipText("Send Image");
+            Bimage.setToolTipText("Envoyer Image");
             Bimage.setContentAreaFilled(false);
             Bimage.setCursor(new Cursor(Cursor.HAND_CURSOR));
             Bimage.setIcon(new ImageIcon(getClass().getResource("/icon/addImage.png")));
@@ -363,7 +364,7 @@ public class Chat_Bottom extends javax.swing.JPanel {
                 }      
             });
             
-            JButton Bcamera = new JButton();
+            /*JButton Bcamera = new JButton();
             Bcamera.setBorder(null);
             Bcamera.setToolTipText("Call");
             Bcamera.setContentAreaFilled(false);
@@ -373,14 +374,14 @@ public class Chat_Bottom extends javax.swing.JPanel {
             Bcamera.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    /*if(!Call_Main.canBeCalled())
+                    if(!Call_Main.canBeCalled())
                         return;
                     cm=new Call_Main(receiver, true);
                     try {
                         Globals.dos.writeUTF("call@@@"+receiver);
                     } catch (IOException ex) {
                         Logger.getLogger(Chat_Bottom.class.getName()).log(Level.SEVERE, null, ex);
-                    }*/
+                    }
                 }
             });
             Bcamera.addMouseListener(new MouseAdapter() {
@@ -394,10 +395,10 @@ public class Chat_Bottom extends javax.swing.JPanel {
                     Bcamera.setContentAreaFilled(false);
                 }      
             });
-            
+            */
             JButton Bscreen = new JButton();
             Bscreen.setBorder(null);
-            Bscreen.setToolTipText("Take a photo");
+            Bscreen.setToolTipText("Capturer une Photo");
             Bscreen.setContentAreaFilled(false);
             Bscreen.setCursor(new Cursor(Cursor.HAND_CURSOR));
             Bscreen.setIcon(new ImageIcon(getClass().getResource("/icon/screen.png")));
