@@ -47,7 +47,7 @@ public class Chat_Bottom extends javax.swing.JPanel {
     private static boolean recording = false;
     private final static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
     private String receiver;
-    //public Call_Main cm;
+    public Call_Main cm;
     public Chat_Bottom() {
         initComponents();
         // this.setBackground(Color.GREEN);
@@ -364,38 +364,38 @@ public class Chat_Bottom extends javax.swing.JPanel {
                 }      
             });
             
-            /*JButton Bcamera = new JButton();
-            Bcamera.setBorder(null);
-            Bcamera.setToolTipText("Call");
-            Bcamera.setContentAreaFilled(false);
-            Bcamera.setCursor(new Cursor(Cursor.HAND_CURSOR));
-            Bcamera.setIcon(new ImageIcon(getClass().getResource("/icon/camera.png")));
-            panel.add(Bcamera);
-            Bcamera.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if(!Call_Main.canBeCalled())
-                        return;
-                    cm=new Call_Main(receiver, true);
-                    try {
-                        Globals.dos.writeUTF("call@@@"+receiver);
-                    } catch (IOException ex) {
-                        Logger.getLogger(Chat_Bottom.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+            JButton Bcamera = new JButton();
+        Bcamera.setBorder(null);
+        Bcamera.setToolTipText("Call");
+        Bcamera.setContentAreaFilled(false);
+        Bcamera.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        Bcamera.setIcon(new ImageIcon(getClass().getResource("/icon/camera.png")));
+        panel.add(Bcamera);
+        Bcamera.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (!Call_Main.canBeCalled())
+                    return;
+                cm = new Call_Main(receiver, true);
+                try {
+                    Globals.dos.writeUTF("call@@@" + receiver);
+                } catch (IOException ex) {
+                    Logger.getLogger(Chat_Bottom.class.getName()).log(Level.SEVERE, null, ex);
                 }
-            });
-            Bcamera.addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseEntered(MouseEvent e) {
-                    Bcamera.setContentAreaFilled(true);
-                }
+            }
+        });
+        Bcamera.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                Bcamera.setContentAreaFilled(true);
+            }
 
-                @Override
-                public void mouseExited(MouseEvent e) {
-                    Bcamera.setContentAreaFilled(false);
-                }      
-            });
-            */
+            @Override
+            public void mouseExited(MouseEvent e) {
+                Bcamera.setContentAreaFilled(false);
+            }
+        });
+            
             JButton Bscreen = new JButton();
             Bscreen.setBorder(null);
             Bscreen.setToolTipText("Capturer une Photo");
