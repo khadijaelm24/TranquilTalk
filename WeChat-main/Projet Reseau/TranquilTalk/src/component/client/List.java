@@ -18,18 +18,29 @@ import java.io.DataOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 import main.MainLogin;
+import main.ModelUser;
 
 public class List extends javax.swing.JPanel {
     private static Map<String, Item_People> ItemPeopleMap;
@@ -102,6 +113,9 @@ public class List extends javax.swing.JPanel {
         menu.setLayout(new MigLayout("fillx","2%[fill,96%]2%","5[]5"));
         menuList.setLayout(new MigLayout("fillx","3%[fill,92%]3%","5[]5"));
         showPeople();
+        //
+        // showProfileOptions();
+
     }
     public void showPeople(){//only use this once
         menuList.removeAll();
@@ -197,16 +211,112 @@ public class List extends javax.swing.JPanel {
         
     }
     
-    private void showGroup(){
-        //test showing
-        menuList.removeAll();
-        for(int i=1;i<=6;i++){
-            menuList.add(new Item_Group("Group_"+i),"wrap");  
-        }
-        menuList.add(new Item_Add("Create new Group"));
-        refreshMenu();
-    }
+    private JTextField usernameField;
+private JTextField emailField;
+private JPasswordField passwordField1;
+private JPasswordField passwordField2;
+private JButton modifyButton;
+private Connection connection; // Déplacer la connexion à un niveau supérieur de portée
+
+private void showGroup(){
+    //test showing
+    menuList.removeAll();
+
+    usernameField = new JTextField(20);
+    emailField = new JTextField(20);
+    passwordField1 = new JPasswordField(20);
+    passwordField2 = new JPasswordField(20);
+    modifyButton = new JButton("Modifier Infos Profil");
+
+    menuList.setLayout(new MigLayout("wrap 2", "[][grow]", ""));
+
+    String myEmail=Globals.getMyEmail();
     
+    // Chargement du pilote JDBC
+    try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+    } catch (ClassNotFoundException e) {
+        e.printStackTrace();
+        return; // Sortir de la fonction si le pilote n'est pas trouvé
+    }
+
+    String query = "SELECT password, name FROM users WHERE email = ?";
+    try {
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3308/catchat","root","");
+        PreparedStatement statement = connection.prepareStatement(query);
+        statement.setString(1, myEmail);
+        ResultSet resultSet = statement.executeQuery();
+        while (resultSet.next()) {
+            String password = resultSet.getString("password");
+            String name = resultSet.getString("name");
+            System.out.println("Name: " + name + ", Password: " + password);
+            
+            menuList.add(new JLabel("Nom d'utilisateur:"));
+            menuList.add(new JLabel(" "));
+            menuList.add(usernameField, "growx, wmin 100, wmax 200, wrap");
+            
+            usernameField.setText(name);
+
+            menuList.add(new JLabel("Email:"));
+            menuList.add(new JLabel(" "));
+            menuList.add(emailField, "growx, wmin 100, wmax 200, wrap");
+            
+            emailField.setText(myEmail);
+
+            menuList.add(new JLabel("Nouveau mot de passe:"));
+            menuList.add(new JLabel(" "));
+            menuList.add(passwordField1, "growx, wmin 100, wmax 200, wrap");
+            
+            passwordField1.setText(password);
+
+            menuList.add(new JLabel("Retaper le mot de passe:"));
+            menuList.add(new JLabel(" "));
+            menuList.add(passwordField2, "growx, wmin 100, wmax 200, wrap");
+
+            passwordField2.setText(password);
+            
+            menuList.add(new JLabel(" "));
+            menuList.add(modifyButton, "skip 1, align left");
+    
+            modifyButton.addActionListener(e -> {
+                String username = usernameField.getText();
+                String email = emailField.getText();
+                String password1 = new String(passwordField1.getPassword());
+                String password2 = new String(passwordField2.getPassword());
+                
+                if (!password1.equals(password2)) {
+                    JOptionPane.showMessageDialog(null, "Les mots de passe ne correspondent pas.");
+                    return; // Quitter la méthode si les mots de passe ne correspondent pas
+                }
+
+                String updateQuery = "UPDATE users SET name = ?, password = ? WHERE email = ?";
+                try {
+                    PreparedStatement updateStatement = connection.prepareStatement(updateQuery);
+                    updateStatement.setString(1, username);
+                    updateStatement.setString(2, password1);
+                    updateStatement.setString(3, email);
+
+                    int rowsAffected = updateStatement.executeUpdate();
+                    if (rowsAffected > 0) {
+                        JOptionPane.showMessageDialog(null, "Informations du profil mises à jour avec succès.");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Erreur lors de la mise à jour des informations du profil.");
+                    }
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                    JOptionPane.showMessageDialog(null, "Erreur lors de la mise à jour des informations du profil.");
+                }
+            });
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+
+    refreshMenu();
+}
+
+   
+
     private void refreshMenu(){
         menuList.repaint();
         menuList.revalidate();

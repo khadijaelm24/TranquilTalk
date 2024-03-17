@@ -5,9 +5,12 @@ import java.awt.Color;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Toolkit;
+import javax.swing.JLabel;
 public class Item_People extends javax.swing.JPanel {
     private boolean connected = false;
     private String email;
+    // private final JLabel deleteIcon;
+    
     public Item_People(String receiver) {
         initComponents();
         email=receiver;
@@ -41,6 +44,7 @@ public class Item_People extends javax.swing.JPanel {
         else
             notifLabel.setText((Integer.parseInt(s.split(" ",2)[0])+1)+" nouveaux messages");
     }
+    
     private void init(){
         addMouseListener(new MouseAdapter() {
             @Override

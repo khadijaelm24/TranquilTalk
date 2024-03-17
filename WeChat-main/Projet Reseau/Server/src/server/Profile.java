@@ -13,6 +13,7 @@ import java.util.Map;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import java.sql.*;
+import javax.swing.JOptionPane;
 
 class Profile {
 
@@ -62,6 +63,54 @@ class Profile {
         return this.name;
     }
 
+    /*
+    public void updateName(String newName) {
+        this.name = newName;
+        // Update the name in the database
+        try {
+            String sql = "UPDATE users SET name = ? WHERE id = ?";
+            PreparedStatement pstmt = stmt.getConnection().prepareStatement(sql);
+            pstmt.setString(1, newName);
+            pstmt.setInt(2, this.id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void updateEmail(String newEmail) {
+        this.email = newEmail.toLowerCase();
+        // Update the email in the database
+        try {
+            String sql = "UPDATE users SET email = ? WHERE id = ?";
+            PreparedStatement pstmt = stmt.getConnection().prepareStatement(sql);
+            pstmt.setString(1, newEmail.toLowerCase());
+            pstmt.setInt(2, this.id);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    public void updatePassword(String newPassword) {
+    // Update the password in the database
+    try {
+        String sql = "UPDATE users SET password = ? WHERE id = ?";
+        PreparedStatement pstmt = stmt.getConnection().prepareStatement(sql);
+        pstmt.setString(1, newPassword);
+        pstmt.setInt(2, this.id);
+        pstmt.executeUpdate();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
+}
+    public void updateProfile(String newEmail, String newPassword, String newName) {
+    updateEmail(newEmail);
+    updateName(newName);
+    updatePassword(newPassword);
+    JOptionPane.showMessageDialog(null, "Profile updated successfully!");
+}
+
+ */   
     public void addMyGroups() {
         String sql = "select * from Groupe, users_groups where users_groups.user_id = '" + this.id + "'";
         try {
