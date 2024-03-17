@@ -34,6 +34,7 @@ class GestionClient extends Thread{
 			System.out.println("Erreur database");
 			error();
 		}
+                
 		if(this.conn != null && this.stmt != null){
 			this.start();
 		}
@@ -41,6 +42,7 @@ class GestionClient extends Thread{
 			error();
 		}
 	}
+        
 	@Override
 	public void run(){
 		while (true){
@@ -241,6 +243,26 @@ class GestionClient extends Thread{
 			return false;
 		}
 	}
+        
+        private void logout() {
+            try {
+                // Informer le client que la déconnexion est en cours
+                dos.writeUTF("Disconnect");
+
+                // Fermer la connexion côté serveur
+                loginOK = false; // Marquer le client comme déconnecté
+                if (profile != null) {
+                    profile.disconnect(); // Gérer la déconnexion du profil associé
+                }
+                dis.close();
+                dos.close();
+                commthread.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
 	private  void error(){
 		if(this.loginOK&&this.profile!=null){
 			this.profile.disconnect();
