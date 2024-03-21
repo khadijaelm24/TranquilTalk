@@ -29,6 +29,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -218,8 +219,8 @@ private JPasswordField passwordField2;
 private JButton modifyButton;
 private Connection connection; // Déplacer la connexion à un niveau supérieur de portée
 
-private void showGroup(){
-    //test showing
+private void showGroup() {
+    // test showing
     menuList.removeAll();
 
     usernameField = new JTextField(20);
@@ -230,8 +231,8 @@ private void showGroup(){
 
     menuList.setLayout(new MigLayout("wrap 2", "[][grow]", ""));
 
-    String myEmail=Globals.getMyEmail();
-    
+    String myEmail = Globals.getMyEmail();
+
     // Chargement du pilote JDBC
     try {
         Class.forName("com.mysql.cj.jdbc.Driver");
@@ -242,48 +243,64 @@ private void showGroup(){
 
     String query = "SELECT password, name FROM users WHERE email = ?";
     try {
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3308/catchat","root","");
+
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3308/catchat", "root", "");
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, myEmail);
+
         ResultSet resultSet = statement.executeQuery();
         while (resultSet.next()) {
             String password = resultSet.getString("password");
             String name = resultSet.getString("name");
             System.out.println("Name: " + name + ", Password: " + password);
-            
-            menuList.add(new JLabel("Nom d'utilisateur:"));
+
+            menuList.add(new JLabel("Nom d'utilisateur:"), "gapleft 50,gaptop 10");
             menuList.add(new JLabel(" "));
-            menuList.add(usernameField, "growx, wmin 100, wmax 200, wrap");
-            
+            menuList.add(usernameField, "growx, wmin 100, wmax 200, hmin 35, gapleft 20, gaptop 10, wrap");
+
             usernameField.setText(name);
+            usernameField.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            usernameField.setForeground(Color.BLACK);
 
-            menuList.add(new JLabel("Email:"));
+            menuList.add(new JLabel("Email:"), "gapleft 80,gaptop 10");
             menuList.add(new JLabel(" "));
-            menuList.add(emailField, "growx, wmin 100, wmax 200, wrap");
-            
+            menuList.add(emailField, "growx, wmin 100, wmax 200, hmin 35,gapleft 20, gaptop 10, wrap");
+
+
             emailField.setText(myEmail);
+            emailField.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            emailField.setForeground(Color.BLACK);
 
-            menuList.add(new JLabel("Nouveau mot de passe:"));
+            menuList.add(new JLabel("Nouveau mot de passe:"), "gapleft 50,gaptop 10");
             menuList.add(new JLabel(" "));
-            menuList.add(passwordField1, "growx, wmin 100, wmax 200, wrap");
-            
+            menuList.add(passwordField1, "growx, wmin 100, wmax 200, hmin 35, gapleft 20, gaptop 10, wrap");
+
             passwordField1.setText(password);
+            passwordField1.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            passwordField1.setForeground(Color.BLACK);
 
-            menuList.add(new JLabel("Retaper le mot de passe:"));
+            menuList.add(new JLabel("Retaper le mot de passe:"), "gapleft 50,gaptop 10");
             menuList.add(new JLabel(" "));
-            menuList.add(passwordField2, "growx, wmin 100, wmax 200, wrap");
+            menuList.add(passwordField2, "growx, wmin 100, wmax 200, hmin 35, gapleft 20, gaptop 10, wrap");
 
             passwordField2.setText(password);
-            
+            passwordField2.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+//            passwordField2.setBackground(new Color(51, 122, 44)); // Couleur définie
+            passwordField2.setForeground(Color.BLACK);
+
             menuList.add(new JLabel(" "));
-            menuList.add(modifyButton, "skip 1, align left");
-    
+           menuList.add(modifyButton, "skip 1, gapleft 50");
+
+
+            modifyButton.setBackground(new Color(51, 122, 44)); // Couleur définie
+            modifyButton.setForeground(Color.WHITE);
+
             modifyButton.addActionListener(e -> {
                 String username = usernameField.getText();
                 String email = emailField.getText();
                 String password1 = new String(passwordField1.getPassword());
                 String password2 = new String(passwordField2.getPassword());
-                
+
                 if (!password1.equals(password2)) {
                     JOptionPane.showMessageDialog(null, "Les mots de passe ne correspondent pas.");
                     return; // Quitter la méthode si les mots de passe ne correspondent pas

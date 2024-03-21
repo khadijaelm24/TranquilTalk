@@ -2,23 +2,50 @@ package component.client.secondaries;
 
 import event.PublicEvent;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 public class Item_People extends javax.swing.JPanel {
     private boolean connected = false;
     private String email;
-    // private final JLabel deleteIcon;
-    
+      private final JLabel deleteIcon;
+
     public Item_People(String receiver) {
         initComponents();
-        email=receiver;
+        email = receiver;
         username.setText(receiver);
-        //
-        // this.setBackground(new java.awt.Color(46, 182, 44));
-        this.setBackground(new java.awt.Color(220,220,220));
+        this.setBackground(new Color(220,220,220));
+        
+        this.setPreferredSize(new Dimension(250, 80));
+        
         init();
+
+        // Adding the delete icon
+        deleteIcon = new JLabel(new ImageIcon(getClass().getResource("/icon/supprimer.png")));
+        //deleteIcon.setCursor(new Cursor(Cursor.HAND_CURSOR));
+        deleteIcon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                     // Get the parent container
+                java.awt.Container parentContainer = getParent();
+                // Ensure that the parent container is not null
+                if (parentContainer != null) {
+                    // Remove this Item_People panel from its parent container
+                    parentContainer.remove(Item_People.this);
+                    // Repaint the parent container
+                    parentContainer.revalidate();
+                    parentContainer.repaint();
+                } else {
+                    System.err.println("Error: Parent container is null.");
+                }
+            }
+            
+        });
+        this.add(deleteIcon);
+        deleteIcon.setBounds(210, 20, 20, 20);  // Adjust position as needed
     }
     
     public String getEmail(){return this.email;}
@@ -44,7 +71,6 @@ public class Item_People extends javax.swing.JPanel {
         else
             notifLabel.setText((Integer.parseInt(s.split(" ",2)[0])+1)+" nouveaux messages");
     }
-    
     private void init(){
         addMouseListener(new MouseAdapter() {
             @Override
