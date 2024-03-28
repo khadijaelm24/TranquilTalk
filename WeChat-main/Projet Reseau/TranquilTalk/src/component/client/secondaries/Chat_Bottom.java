@@ -47,7 +47,7 @@ public class Chat_Bottom extends javax.swing.JPanel {
     private static boolean recording = false;
     private final static DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd-HH-mm-ss");
     private String receiver;
-    public Call_Main cm;
+    //public Call_Main cm;
     public Chat_Bottom() {
         initComponents();
         // this.setBackground(Color.GREEN);
@@ -364,7 +364,7 @@ public class Chat_Bottom extends javax.swing.JPanel {
                 }      
             });
             
-            JButton Bcamera = new JButton();
+            /*JButton Bcamera = new JButton();
         Bcamera.setBorder(null);
         Bcamera.setToolTipText("Call");
         Bcamera.setContentAreaFilled(false);
@@ -394,7 +394,7 @@ public class Chat_Bottom extends javax.swing.JPanel {
             public void mouseExited(MouseEvent e) {
                 Bcamera.setContentAreaFilled(false);
             }
-        });
+        });*/
             
             JButton Bscreen = new JButton();
             Bscreen.setBorder(null);

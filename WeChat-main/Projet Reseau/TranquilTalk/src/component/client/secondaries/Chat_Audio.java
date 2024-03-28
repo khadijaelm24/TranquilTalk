@@ -55,7 +55,7 @@ public class Chat_Audio extends javax.swing.JPanel {
             long sr= (long)clip.getMicrosecondLength()/1000;
             setMaxslider((int)(sr-100));
 	} catch (Exception e) {
-            System.out.println("Couldn't find file "+fileName);
+            System.out.println("fichier introuvable! "+fileName);
            // e.printStackTrace();
 	}
     }

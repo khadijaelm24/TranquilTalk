@@ -44,10 +44,10 @@ class Profile {
     public static Map<Profile, DataOutputStream> getMap(){return mapDos;}
     public static void inintaliseProfiles() {
         if (mapDos == null) {
-            System.out.print("initialising ...");
+            System.out.print("initialisation ...");
             mapDos = new HashMap<>();
             allGroups = new ArrayList<>();
-            System.out.println(" Done !");
+            System.out.println(" faite  !");
         }
     }
 
@@ -182,7 +182,7 @@ class Profile {
     public boolean sendMessage(String target, String msg) {
         String s[] = msg.split("@@@");
         if (!s[0].equals("videoCall") && !s[0].equals("audioCall")) {
-            System.out.println(this.getEmail() + " is sending " + s[0] + " to " + target);
+            System.out.println(this.getEmail() + " envoie  " + s[0] + " a " + target);
         }
         byte bytes[] = new byte[0];
         if (!s[0].equals("text")) {
@@ -208,11 +208,11 @@ class Profile {
             } catch (IOException e) {
                 e.printStackTrace();
                 p.unlockMe();
-                System.out.println("Failed to print message");
+                System.out.println("Echec d'affichage du message");
                 return false;
             }
         }
-        System.out.println(this.getEmail() + " failed to send " + s[0] + " to " + target);
+        System.out.println(this.getEmail() + " envoie  " + s[0] + " a " + target);
         if (s[0].equals("videoCall") || s[0].equals("audioCall")) {
             return false;
         }
@@ -234,7 +234,7 @@ class Profile {
 
     public boolean sendMessageToGroup(int target, String msg) {
         String s[] = msg.split("@@@");
-        System.out.println(this.getEmail() + " is sending " + s[0] + " to group " + target);
+        System.out.println(this.getEmail() + " envoie  " + s[0] + " au group " + target);
         byte bytes[] = new byte[0];
         if (!s[0].equals("text")) {
             try {

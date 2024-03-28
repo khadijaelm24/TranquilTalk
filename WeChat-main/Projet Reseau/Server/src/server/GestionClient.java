@@ -31,7 +31,7 @@ class GestionClient extends Thread{
 		}
 		catch(Exception e){
 			e.printStackTrace();
-			System.out.println("Erreur database");
+			System.out.println("Erreur base de donnee");
 			error();
 		}
                 
@@ -110,13 +110,13 @@ class GestionClient extends Thread{
 								dos.writeUTF("registerError");
 						}
 						else
-							System.out.println("Unknown command : "+message);
+							System.out.println("commande inconnue : "+message);
 					}
 					else
-						System.out.println("Unknown command : "+message);
+						System.out.println("commande inconnue : "+message);
 				}
 				catch(Exception e){
-					System.out.println("Client disconnected");
+					System.out.println("Client deconnecter");
 					error();
 					break;
 				}
@@ -185,14 +185,14 @@ class GestionClient extends Thread{
 				else if(receiver.equals("Disconnect")){
 					this.loginOK=false;
 					this.profile.disconnect();;
-					System.out.println(this.profile.getName()+" disconnected");
+					System.out.println(this.profile.getName()+" deconnecter");
 				}
 				else
 					System.out.println("2 receiver not found " + receiver);
 			}
 			catch (IOException e) {
 				if(this.profile!=null)
-					System.out.println(profile.getName()+" disconnected");
+					System.out.println(profile.getName()+" deconnecter");
 				error();
 				break;
 			}
@@ -205,7 +205,7 @@ class GestionClient extends Thread{
 			if(this.rs.next()){
                 if(rs.getString("password").equals(password)){
                     this.dos.writeUTF("Login Successful");
-                    System.out.println(login+" : Login Successful");
+                    System.out.println(login+" : Connexion reussie");
                     this.profile = new Profile(this.rs.getInt("user_id"),this.rs.getString("email"),
                     this.rs.getString("name"), this.dos, this.dis, this.stmt);
                     this.profile.lockMe();
@@ -213,7 +213,7 @@ class GestionClient extends Thread{
                 }
 			}
 			this.dos.writeUTF("Login Failed");
-			System.out.println(login+" : Login Failed");
+			System.out.println(login+" : Echec de connexion");
 			return false;
 		}
 		catch(Exception e){
@@ -227,14 +227,14 @@ class GestionClient extends Thread{
 			this.rs = this.stmt.executeQuery(sql);
 			if(this.rs.next()){
 				this.dos.writeUTF("Email already used");
-				System.out.println(Email+" already used");
+				System.out.println(Email+" deja utilise");
 				return false;
 			}
 			else{
 				sql = "INSERT INTO users (name, email, password) VALUES ('"+name+"','"+Email+"','"+password+"')";
 				this.stmt.executeUpdate(sql);
 				this.dos.writeUTF("Registration Successful");
-				System.out.println("Registration Successful");
+				System.out.println("inscription reussite");
 				return true;
 			}
 		}

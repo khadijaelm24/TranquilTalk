@@ -1,4 +1,4 @@
-package component.client.secondaries;
+/*package component.client.secondaries;
 
 import com.github.sarxos.webcam.Webcam;
 import event.Globals;
@@ -253,3 +253,4 @@ public class Call_Main extends javax.swing.JFrame {
     private javax.swing.JLabel partnerNameLabel;
     // End of variables declaration//GEN-END:variables
 }
+*/

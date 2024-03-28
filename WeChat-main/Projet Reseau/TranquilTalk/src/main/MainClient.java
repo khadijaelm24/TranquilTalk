@@ -2,7 +2,7 @@
 package main;
 
 import component.client.List;
-import component.client.secondaries.Call_Main;
+//import component.client.secondaries.Call_Main;
 //import component.client.secondaries.Call_Main;
 import event.EventImageView;
 import event.EventOpenFile;
@@ -144,7 +144,7 @@ public class MainClient extends javax.swing.JFrame {
                                         home.list.newMessage(sender);
                                     break;
                                 }
-                            case "videoCall":
+                            /*case "videoCall":
                                 {
                                     int len = Globals.dis.readInt();
                                     byte[] image = new byte[len];
@@ -160,7 +160,7 @@ public class MainClient extends javax.swing.JFrame {
                                         home.chat.CBottom.cm.callEnded();
                                     else
                                         home.chat.CBottom.cm.callStarted();
-                                }
+                                }*/
                             default:
                                 break;
                         }
@@ -175,7 +175,7 @@ public class MainClient extends javax.swing.JFrame {
                                 List.connection(strArray[1], false);
                                 //home.list.addPeople(strArray[1], strArray[2]);
                                 break;
-                            case "call":
+                            /*case "call":
                                 {
                                     if(JOptionPane.showConfirmDialog(null, strArray[1]+"is Calling you, do you wish to accept?")==JOptionPane.YES_OPTION){
                                         Globals.dos.writeUTF("answer@@@"+strArray[1]+"@@@accept");
@@ -183,7 +183,7 @@ public class MainClient extends javax.swing.JFrame {
                                     }
                                     else
                                         Globals.dos.writeUTF("answer@@@"+strArray[1]+"@@@refuse");
-                                }
+                                }*/
                             case "exist"://confirm if contact you want to add exist in db
                                 try{
                                     File myObj = new File("Conversations/"+Globals.getMyEmail()+" "+strArray[1]+".txt");
