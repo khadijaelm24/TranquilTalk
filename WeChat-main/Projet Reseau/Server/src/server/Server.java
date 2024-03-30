@@ -7,6 +7,7 @@ import java.net.Socket;
 
 class Server{
 	public static void main(String[] args) {
+            // Socket de connexion
         ServerSocket connSocket=null;
         try{
             connSocket = new ServerSocket(5059);

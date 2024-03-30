@@ -26,7 +26,7 @@ class GestionClient extends Thread{
 		this.dos = doss;
 		try{
                         Class.forName("com.mysql.jdbc.Driver");
-			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3308/catchat","root","");
+			this.conn = DriverManager.getConnection("jdbc:mysql://localhost:3308/tranquiltalk","root","");
 			this.stmt = this.conn.createStatement();
 		}
 		catch(Exception e){

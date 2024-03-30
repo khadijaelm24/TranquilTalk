@@ -192,12 +192,12 @@ public class List extends javax.swing.JPanel {
         }
     }
     private void addAddition(){
-        Item_Add i=new Item_Add("Add new contact");
+        Item_Add i=new Item_Add("Ajouter contact");
         menuList.add(i);
         i.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                String Email=JOptionPane.showInputDialog(null,"Add a contact");
+                String Email=JOptionPane.showInputDialog(null,"Ajouter contact");
                 if(Email!=null){
                     try{
                         Globals.dos.writeUTF("checkIfExist@@@"+Email.toLowerCase());
@@ -244,7 +244,7 @@ private void showGroup() {
     String query = "SELECT password, name FROM users WHERE email = ?";
     try {
 
-        connection = DriverManager.getConnection("jdbc:mysql://localhost:3308/catchat", "root", "");
+        connection = DriverManager.getConnection("jdbc:mysql://localhost:3308/tranquiltalk", "root", "");
         PreparedStatement statement = connection.prepareStatement(query);
         statement.setString(1, myEmail);
 
