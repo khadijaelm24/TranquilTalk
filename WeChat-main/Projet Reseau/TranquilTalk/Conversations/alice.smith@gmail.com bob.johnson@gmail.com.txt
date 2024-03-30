@@ -1,5 +1,0 @@
-text@@@alice.smith@gmail.com@@@2023-03-14-15-26-36@@@Hello
-audio@@@alice.smith@gmail.com@@@2023-03-14-15-26-49@@@Audios/S 2023-03-14-15-26-45.wav
-audio@@@alice.smith@gmail.com@@@2023-03-14-15-27-00@@@Audios/S 2023-03-14-15-26-58.wav
-image@@@alice.smith@gmail.com@@@2023-03-14-15-27-33@@@Files/2023-03-14-15-27-33 boulaich.nasrallahAttestation.pdf
-text@@@bob.johnson@gmail.com@@@2023-03-14-15-29-52@@@Thanks

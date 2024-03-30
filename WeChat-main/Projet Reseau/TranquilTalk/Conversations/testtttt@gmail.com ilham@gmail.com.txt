@@ -1,6 +1,0 @@
-text@@@testtttt@gmail.com@@@2024-03-28-21-10-05@@@salut
-audio@@@testtttt@gmail.com@@@2024-03-28-21-10-08@@@Audios/S 2024-03-28-21-10-06.wav
-text@@@ilham@gmail.com@@@2024-03-28-21-11-18@@@salut cv?
-audio@@@ilham@gmail.com@@@2024-03-28-21-11-20@@@Audios/ilham@gmail.com 2024-03-28-21-11-20.wav
-file@@@ilham@gmail.com@@@2024-03-28-21-11-34@@@Files/ilham@gmail.com favicon.png
-image@@@ilham@gmail.com@@@2024-03-28-21-13-00@@@Images/ilham@gmail.com R capture 2024-03-28-21-13-00png
