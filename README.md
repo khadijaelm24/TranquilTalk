@@ -46,8 +46,6 @@ Clients can connect to the service using their email address to:
 <img src="assets/image(5).png"/> <br/>
 <img src="assets/image(6).png"/> <br/>
 <img src="assets/image(7).png"/> <br/>
-<img src="assets/image(8).png"/> <br/>
-<img src="assets/image(9).png"/> <br/>
 <img src="assets/image(11).png"/> <br/>
 <img src="assets/image(12).png"/> <br/>
 <img src="assets/image(13).png"/> <br/>
